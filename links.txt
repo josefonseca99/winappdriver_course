@@ -1,3 +1,10 @@
 https://www.logigear.com/magazine/software-testing-tools/12-best-automation-tools-for-testing-desktop-apps-in-2019/
+
+Mapeo Objetos
 https://www.automatetheplanet.com/winappdriver-page-objects/
+
+Arquitectura
 https://github.com/imsardine/winappdriver/wiki/Background
+
+Identificadores
+https://docs.microsoft.com/en-us/dotnet/api/system.windows.automation.automationelement.automationelementinformation?view=netframework-4.8
