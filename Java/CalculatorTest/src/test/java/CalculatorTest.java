@@ -16,12 +16,16 @@
 
 import org.junit.*;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.internal.Coordinates;
+import org.openqa.selenium.internal.Locatable;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import java.util.concurrent.TimeUnit;
 import java.net.URL;
 import io.appium.java_client.windows.WindowsDriver;
+import io.appium.java_client.windows.WindowsElement;
 
 public class CalculatorTest {
 
@@ -58,6 +62,7 @@ public class CalculatorTest {
         CalculatorResult = null;
         if (CalculatorSession != null) {
             CalculatorSession.quit();
+            
         }
         CalculatorSession = null;
     }
@@ -65,8 +70,14 @@ public class CalculatorTest {
     @Test
     public void Addition()
     {
+ 
+		WebElement elemento = CalculatorSession.findElementByAccessibilityId("AppName");
+		
+		CalculatorSession.getMouse().doubleClick(((Locatable) elemento).getCoordinates());		
+		
+		
     	CalculatorSession.getKeyboard().sendKeys("9874563211486351478965741236987");
-    	CalculatorSession.getKeyboard().sendKeys("+");
+    	CalculatorSession.getKeyboard().sendKeys("+");    	
     	CalculatorSession.getKeyboard().sendKeys("7539517415");
     	CalculatorSession.getKeyboard().sendKeys(Keys.ENTER);
         Assert.assertEquals("9.874.563.211.486.351.478.973.280.754.402", _GetCalculatorResultText());
@@ -85,6 +96,7 @@ public class CalculatorTest {
         CalculatorSession.findElementByName("Ocho").click();
         CalculatorSession.findElementByName("Es igual a").click();
         Assert.assertEquals("8", _GetCalculatorResultText());
+        
     }
 
     @Test
