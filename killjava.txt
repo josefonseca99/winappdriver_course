@@ -1,0 +1,2 @@
+netstat -ano | findstr 4723
+taskkill /f /im javaw.exe /t
