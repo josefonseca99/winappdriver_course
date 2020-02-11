@@ -19,11 +19,11 @@ public class CalculadoraDeWindowsStepDefinitions {
 
 	@Cuando("se realiza la suma de {int} mas {int}")
 	public void seRealizaLaSumaDeMas(Integer sumandoUno, Integer sumandoDos) {
-	//	calculadoraStep.realizarSuma(sumandoUno, sumandoDos);
+		calculadoraStep.realizarSuma(sumandoUno, sumandoDos);
 	}
 
 	@Entonces("se verifica que el resultado de la suma es {int}")
 	public void seVerificaQueElResultadoDeLaSumaEs(Integer total) {
-		//calculadoraStep.verificarLaSumaTotal(total);
+		calculadoraStep.verificarLaSumaTotal(total);
 	}
 }

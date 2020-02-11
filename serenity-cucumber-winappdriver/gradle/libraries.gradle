@@ -2,12 +2,12 @@ ext{
 	slf4jVersion = '1.7.7'
 	serenityCoreVersion = '2.0.91'
 	serenityCucumberVersion = '1.0.30'
-	junitVersion='4.12'
+	junitVersion='4.11'
 	assertJVersion='3.8.0'
 	logbackVersion='1.2.3'
 	cucumberVersion = '4.8.0'
-	appiumWebDriverVersion= '7.3.0'
-	seleniumWebDriverVersion='3.141.59'
+	appiumWebDriverVersion= '5.0.0-BETA6'
+	seleniumWebDriverVersion='3.3.1'
 
 
 	libs = [

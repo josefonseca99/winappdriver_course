@@ -1,6 +1,6 @@
 package serenity.cucumber.winappdriver.interfaces;
 
-import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 
 import net.serenitybdd.core.Serenity;
 import serenity.cucumber.winappdriver.exception.NoIngresoUnNumeroCorrecto;;
@@ -8,15 +8,16 @@ import serenity.cucumber.winappdriver.exception.NoIngresoUnNumeroCorrecto;;
 public class Calculadora extends CalculadoraUI {
 
 	private void ingresarMenuPrincipal() {
-		menuPrincipal.click();
+		find(menuPrincipal).click();
 		Serenity.takeScreenshot();
 	}
 
 	public void cambiarCalculadoraCientifica() {
-		find(ocho).click();
-		//ingresarMenuPrincipal();
-		//menuCalculadoraCientifica.click();
-		//Serenity.takeScreenshot();
+		if(!isScientMode()) {
+				ingresarMenuPrincipal();
+				find(menuCalculadoraCientifica).click();
+				Serenity.takeScreenshot();
+		}		
 	}
 
 	public void ingresarDigito(int digito) {
@@ -58,23 +59,27 @@ public class Calculadora extends CalculadoraUI {
 	}
 
 	public void operacionSuma() {
-		botonSuma.click();
+		find(botonSuma).click();
 		Serenity.takeScreenshot();
 	}
 
 	public void realizarOperacion() {
-		framePrincipal.findElement(By.id("equalButton")).click();
+		find(botonIgual).click();
 	}
 
 	public String obtenerResultado() {
-		return framePrincipal.findElement(By.id("CalculatorResults")).getAttribute("Name");
+		return find(resultado).getText();
 	}
 
 	public void cerrarCalculadora() {
-		getDriver().findElement(By.name("Cerrar Calculadora")).click();
+		getDriver().quit();
 	}
 
 	public String obtenerSuma() {
-		return resultado.getAttribute("Name");
+		return find(resultado).getText();
 	}
+	public boolean isScientMode() {	  
+		  if( find(header).getText().equals("Científica"))return true;	  
+		  return false;
+		  }
 }

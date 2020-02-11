@@ -1,7 +1,12 @@
 package serenity.cucumber.winappdriver.hook;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
+import java.io.BufferedReader;
 import java.io.File;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -19,9 +24,8 @@ public class ServidorWAP {
 		String directorio = EnvironmentSpecificConfiguration.from(variablesDeAmbiente).getProperty("servidor.winappdriver.path");
 		ProcessBuilder constructor = new ProcessBuilder(new File(directorio).getAbsolutePath());
 		proceso = constructor.start();
-		System.out.println("XXXXXXXXXXXXXXx"+proceso.getErrorStream());
-		System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXX" +proceso.getOutputStream());
 		proceso.waitFor(3, TimeUnit.SECONDS);
+		
 	}
 
 	@After
