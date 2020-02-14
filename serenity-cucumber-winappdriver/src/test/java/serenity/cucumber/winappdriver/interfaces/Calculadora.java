@@ -1,21 +1,19 @@
 package serenity.cucumber.winappdriver.interfaces;
 
-import org.openqa.selenium.Keys;
-
 import net.serenitybdd.core.Serenity;
 import serenity.cucumber.winappdriver.exception.NoIngresoUnNumeroCorrecto;;
 
 public class Calculadora extends CalculadoraUI {
 
 	private void ingresarMenuPrincipal() {
-		find(menuPrincipal).click();
+		menuPrincipal.click();
 		Serenity.takeScreenshot();
 	}
 
 	public void cambiarCalculadoraCientifica() {
 		if(!isScientMode()) {
 				ingresarMenuPrincipal();
-				find(menuCalculadoraCientifica).click();
+				menuCalculadoraCientifica.click();
 				Serenity.takeScreenshot();
 		}		
 	}
@@ -59,16 +57,16 @@ public class Calculadora extends CalculadoraUI {
 	}
 
 	public void operacionSuma() {
-		find(botonSuma).click();
+		botonSuma.click();
 		Serenity.takeScreenshot();
 	}
 
 	public void realizarOperacion() {
-		find(botonIgual).click();
+		botonIgual.click();
 	}
 
 	public String obtenerResultado() {
-		return find(resultado).getText();
+		return resultado.getText();
 	}
 
 	public void cerrarCalculadora() {
@@ -76,10 +74,10 @@ public class Calculadora extends CalculadoraUI {
 	}
 
 	public String obtenerSuma() {
-		return find(resultado).getText();
+		return resultado.getText();
 	}
 	public boolean isScientMode() {	  
-		  if( find(header).getText().equals("Científica"))return true;	  
+		  if( header.getText().equals("Científica"))return true;	  
 		  return false;
 		  }
 }

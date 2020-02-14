@@ -1,6 +1,5 @@
 package serenity.cucumber.winappdriver.interfaces;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
@@ -21,17 +20,15 @@ public class CalculadoraUI extends PageObject {
 	
 	@FindBy(name = "Calculadora") public WebElement framePrincipal;
 	
+	@FindBy(xpath = "//Button[@AutomationId='TogglePaneButton']") public WebElement menuPrincipal;
 
-	public By menuPrincipal = By.xpath("//Button[@AutomationId='TogglePaneButton']");
+	@FindBy(xpath = "//ListItem[@AutomationId='Scientific']") public WebElement menuCalculadoraCientifica;
 
-	public By menuCalculadoraCientifica = By.xpath("//ListItem[@AutomationId='Scientific']");;
+	@FindBy(xpath = "//Button[@AutomationId='plusButton']") public WebElement botonSuma;
 
-	public By botonSuma = By.xpath("//Button[@AutomationId='plusButton']");
-	
-	public By botonIgual = By.xpath("//Button[@AutomationId='equalButton']");
+	@FindBy(xpath = "//Button[@AutomationId='equalButton']") public WebElement botonIgual;
 
-	public By resultado =  By.xpath("//Text[@AutomationId='CalculatorResults']");
-	
-	public By header = By.xpath("//Text[@AutomationId='Header']");
+	@FindBy(xpath = "//Text[@AutomationId='CalculatorResults']") public WebElement resultado;
 
+	@FindBy(xpath = "//Text[@AutomationId='Header']") public WebElement header;
 }

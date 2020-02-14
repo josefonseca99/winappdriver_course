@@ -3,7 +3,6 @@ package serenity.cucumber.winappdriver.driver;
 import java.io.IOException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.WebDriver;
 import serenity.cucumber.winappdriver.exception.FallaInstanciaDriver;
 import net.serenitybdd.core.environment.EnvironmentSpecificConfiguration;
@@ -27,13 +26,13 @@ public class CustomWADDriver implements DriverSource {
 			EnvironmentVariables vA = Injectors.getInjector().getInstance(EnvironmentVariables.class);
 			String app = EnvironmentSpecificConfiguration.from(vA).getProperty("windows.program.path");						
 			DesiredCapabilities capabilities = new DesiredCapabilities();
-            capabilities.setCapability("app", app);
-            Thread.sleep(1000);
-            WindowsDriver driver = new WindowsDriver(new URL("http://127.0.0.1:4723"), capabilities);            
+            capabilities.setCapability("app", app);          
+            WindowsDriver driver = new WindowsDriver(new URL("http://127.0.0.1:4723"), capabilities);   
+            driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
             return driver;
             
 			
-		} catch (IOException | InterruptedException e) {
+		} catch (IOException e) {
 			throw new FallaInstanciaDriver("No se pudo instanciar el driver $", e);
 		}
 	}

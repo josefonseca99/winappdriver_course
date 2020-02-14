@@ -15,7 +15,7 @@ buildscript {
     }
 
     dependencies {
-        classpath("net.serenity-bdd:serenity-gradle-plugin:2.0.91")
+        classpath("net.serenity-bdd:serenity-gradle-plugin:2.1.6")
     }
 }
 
@@ -67,4 +67,3 @@ test.finalizedBy(aggregate)
 gradle.startParameter.continueOnFailure = true
 
 test.finalizedBy(aggregate)
-

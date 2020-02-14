@@ -11,12 +11,13 @@ public class CalculadoraDeWindowsStepDefinitions {
 
 	@Steps
 	OperacionBasicaStep calculadoraStep;
-
-	@Dado("la calculadora esta en modo Científico")
+	
+	@Dado("la calculadora esta en modo Cientifico")
 	public void laCalculadoraEstaEnModoCientifico() {
+	    // Write code here that turns the phrase above into concrete actions
 		calculadoraStep.modoCalculadoraCientifica();
 	}
-
+	
 	@Cuando("se realiza la suma de {int} mas {int}")
 	public void seRealizaLaSumaDeMas(Integer sumandoUno, Integer sumandoDos) {
 		calculadoraStep.realizarSuma(sumandoUno, sumandoDos);
